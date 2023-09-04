@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+    <!--Bootstrap CSS Stylesheet-->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <!--Bootstrap Javascript Script-->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href= "/css/styles.css">
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+  </head>
+
+  <body>
+    
+      <div class="card-container">
+        <picture>
+          <source media="(min-width: 1024px)" srcset="/images/bg-main-desktop.png">
+          <img src="/images/bg-main-mobile.png" alt="">
+        </picture>
+        <div class="card card-back">
+          <span id="card-cvc" class="cvc-output">000</span>
+        </div>
+        <div class="card card-front">
+          <img src="/images/card-logo.svg" alt="logo" class="logo">
+          <section class="output-section">
+            <h1 id="card-number" class="number-output">0000 0000 0000 0000</h1>
+            <div>
+              <p id="person-name" class="name-output">Jane Appleseed</p>
+              <p><span id="card-month" class="month-output">00</span>/<span id="card-year" class="year-output">00</span></p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+
+
+
+
+    <section id="right-side">
+      <div id="thank-you" class="hidden">
+        <img
+          src="./images/icon-complete.svg"
+          alt="logo"
+          class="logothank"
+        />
+        <h1>THANK YOU!</h1>
+        <h2>We've added your card details</h2>
+        <button
+          type="button"
+          class="btn btn-primary btn-lg btn-block tombol"
+          id="continue"
+          onclick="continueForm()"
+        >
+          Continue
+        </button>
+      </div>
+      <form id="form" class="form-signin" form action="/" method="post">
+        <div class="input-icons">
+          <label>CARDHOLDER NAME</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="nama"
+            oninput="captureName()"
+          />
+          <span class="error hidden" id="error-nama">No Numbers</span>
+        </div>
+        <div class="input-icons">
+          <label>CARD NUMBER</label>
+          <input
+            type="text"
+            class="form-control"
+            id="number"
+            name="nomor"
+            maxlength="16"
+            oninput="captureNumber()"
+          />
+          <span class="error hidden" id="error-angka"
+            >Wrong format. Numbers only</span
+          >
+        </div>
+        <div class="input-details">
+          <div class="date">
+            <label>EXP DATE (MM/YY)</label>
+            <div class="tanggal">
+              <input
+                type="text"
+                class="form-control"
+                id="month"
+                name="bulan"
+                maxlength="2"
+                oninput="captureMonth()"
+              />
+              <input
+                type="text"
+                class="form-control"
+                id="year"
+                name="tahun"
+                maxlength="2"
+                oninput="captureYear()"
+              />
+            </div>
+            <span class="error hidden" id="error-tanggal"
+              >Can't be blank</span
+            >
+          </div>
+          <div class="cvc">
+            <label>CVC</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cvc"
+              name="cvc"
+              maxlength="3"
+              oninput="captureCVC()"
+            />
+            <span class="error hidden" id="error-cvc"
+              >Can't be blank</span
+            >
+          </div>
+        </div>
+        <button
+          type="submit"
+          id="confirm"
+          class="btn btn-primary btn-lg btn-block tombol"
+          onclick="confirmForm()"
+        >
+          Confirm
+      </button>
+      <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>. 
+        Coded by <a href="https://www.facebook.com/ANT1D0t35" target="_blank" rel="noopener">Rocky</a>.
+      </footer>
+      </form>
+    </section>
+  <script src="index.js"></script>
+  </body>
+</html>
